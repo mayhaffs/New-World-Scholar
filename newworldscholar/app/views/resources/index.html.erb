@@ -1,0 +1,29 @@
+<h1>Listing resources</h1>
+
+<%= link_to 'New Resource', new_resource_path %>
+</br>
+</br>
+<ul>
+<% @resources.each do |resource| %>
+<li>
+  <%= image_tag(resource.picture, :size => "150x150") %></br>
+    <b>Name: </b><%= resource.name %></br>
+    <b>Url: </b><%= resource.url %></br>
+    <b>Category: </b>
+
+
+
+    <% resource.categories.each do |category| %>
+    <%= category.name %>
+    <% end %>
+  </br>
+    <%= link_to 'Show', resource %>
+    <%= link_to 'Edit', edit_resource_path(resource) %>
+   <%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>
+   </br>
+<% end %>
+</ul>
+
+<br />
+
